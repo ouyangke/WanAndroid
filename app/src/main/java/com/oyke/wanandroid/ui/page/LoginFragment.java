@@ -3,10 +3,10 @@ package com.oyke.wanandroid.ui.page;
 import com.oyke.baselibrary.base.BaseFragment;
 import com.oyke.wanandroid.R;
 import com.oyke.wanandroid.databinding.FragmentLoginBinding;
-import com.oyke.wanandroid.viewmodel.page.LoginViewModel;
+import com.oyke.wanandroid.viewmodel.state.LoginViewModel;
 
 /**
- * Description:    TODO
+ * Description:    登录
  * Author:         oyke
  * CreateDate:     2020/1/5 14:23
  */

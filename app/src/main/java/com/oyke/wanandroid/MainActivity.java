@@ -2,13 +2,12 @@ package com.oyke.wanandroid;
 
 import com.oyke.baselibrary.base.BaseActivity;
 import com.oyke.wanandroid.databinding.ActivityMainBinding;
-import com.oyke.wanandroid.viewmodel.MainViewModel;
+import com.oyke.wanandroid.viewmodel.state.MainViewModel;
 
 /**
- * description TODO
- *
- * @author oyke
- * @date 2020/1/1 8:15
+ * Description:    全局application
+ * Author:         oyke
+ * CreateDate:     2020/1/1 8:15
  */
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
 

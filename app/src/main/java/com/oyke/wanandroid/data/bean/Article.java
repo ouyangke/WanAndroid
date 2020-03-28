@@ -3,10 +3,9 @@ package com.oyke.wanandroid.data.bean;
 import java.util.List;
 
 /**
- * description TODO
- *
- * @author oyke
- * @date 2020/1/1 10:37
+ * Description:    文章实体类
+ * Author:         oyke
+ * CreateDate:     2020/1/1 10:37
  */
 public class Article {
 

@@ -1,9 +1,9 @@
-package com.oyke.wanandroid.viewmodel.page;
+package com.oyke.wanandroid.viewmodel.state;
 
 import com.oyke.baselibrary.base.BaseViewModel;
 
 /**
- * Description:    TODO
+ * Description:    登录ViewModel
  * Author:         oyke
  * CreateDate:     2020/1/5 14:24
  */

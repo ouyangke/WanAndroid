@@ -3,11 +3,12 @@ package com.oyke.wanandroid.ui.page;
 import com.oyke.baselibrary.base.BaseFragment;
 import com.oyke.wanandroid.R;
 import com.oyke.wanandroid.databinding.FragmentHomeBinding;
-import com.oyke.wanandroid.viewmodel.page.HomeViewModel;
+import com.oyke.wanandroid.viewmodel.state.HomeViewModel;
 
 /**
- * @author oyke
- * @date 2020/1/10
+ * Description:    主页
+ * Author:         oyke
+ * CreateDate:     2020/1/10 9:47
  */
 public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewModel> {
     @Override

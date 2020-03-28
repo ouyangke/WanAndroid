@@ -3,11 +3,12 @@ package com.oyke.wanandroid.ui.page;
 import com.oyke.baselibrary.base.BaseFragment;
 import com.oyke.wanandroid.R;
 import com.oyke.wanandroid.databinding.FragmentSplashBinding;
-import com.oyke.wanandroid.viewmodel.page.SplashViewModel;
+import com.oyke.wanandroid.viewmodel.state.SplashViewModel;
 
 /**
- * @author oyke
- * @date 2020/1/10
+ * Description:    闪屏
+ * Author:         oyke
+ * CreateDate:     2020/1/10 9:47
  */
 public class SplashFragment extends BaseFragment<FragmentSplashBinding, SplashViewModel> {
     @Override

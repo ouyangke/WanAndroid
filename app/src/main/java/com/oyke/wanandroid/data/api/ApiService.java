@@ -21,10 +21,9 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 /**
- * description     玩android API
- *
- * @author oyke
- * @date 2020/1/1 9:47
+ * Description:    玩android API
+ * Author:         oyke
+ * CreateDate:     2020/1/1 9:47
  */
 public interface ApiService {
     /**
