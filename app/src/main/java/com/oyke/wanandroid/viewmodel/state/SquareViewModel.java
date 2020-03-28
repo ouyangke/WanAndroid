@@ -3,11 +3,9 @@ package com.oyke.wanandroid.viewmodel.state;
 import com.oyke.baselibrary.base.BaseViewModel;
 
 /**
- * Description:    主页ViewModel
+ * Description:    TODO
  * Author:         oyke
- * CreateDate:     2020/1/1 9:47
+ * CreateDate:     2020/3/28 15:27
  */
-public class HomeViewModel extends BaseViewModel {
-
-
+public class SquareViewModel extends BaseViewModel {
 }

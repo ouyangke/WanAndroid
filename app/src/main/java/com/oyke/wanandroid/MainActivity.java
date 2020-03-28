@@ -1,11 +1,12 @@
 package com.oyke.wanandroid;
 
+import com.orhanobut.logger.Logger;
 import com.oyke.baselibrary.base.BaseActivity;
 import com.oyke.wanandroid.databinding.ActivityMainBinding;
 import com.oyke.wanandroid.viewmodel.state.MainViewModel;
 
 /**
- * Description:    全局application
+ * Description:    主activity
  * Author:         oyke
  * CreateDate:     2020/1/1 8:15
  */
@@ -28,11 +29,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
     @Override
     protected void initData() {
-
+        mViewModel.requestBanner();
     }
 
     @Override
     protected void initViewObservable() {
-
+        mViewModel.getBannersLiveData().observe(this, banners -> {
+            Logger.d("获取到banner数据:" + banners);
+        });
     }
 }

@@ -1,7 +1,7 @@
 package com.oyke.wanandroid.data.repository;
 
 /**
- * Description:    TODO
+ * Description:    本地数据仓库接口
  * Author:         oyke
  * CreateDate:     2020/1/5 13:54
  */
