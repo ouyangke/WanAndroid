@@ -28,7 +28,6 @@ public class SplashFragment extends BaseFragment<FragmentSplashBinding, SplashVi
 
     @Override
     protected void initData() {
-
     }
 
     @Override
