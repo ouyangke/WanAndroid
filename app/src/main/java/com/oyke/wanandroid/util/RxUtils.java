@@ -25,9 +25,10 @@ public class RxUtils {
 
     /**
      * 数据预处理
+     *
      * @return
      */
-    public static ObservableTransformer preProcessTransformer(){
+    public static ObservableTransformer preProcessTransformer() {
         return upstream -> upstream
                 //数据预处理
                 .map(new BaseResponseFunc());

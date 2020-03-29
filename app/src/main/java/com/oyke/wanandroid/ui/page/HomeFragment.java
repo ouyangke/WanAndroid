@@ -1,5 +1,7 @@
 package com.oyke.wanandroid.ui.page;
 
+import com.blankj.utilcode.util.ToastUtils;
+import com.orhanobut.logger.Logger;
 import com.oyke.baselibrary.base.BaseFragment;
 import com.oyke.wanandroid.R;
 import com.oyke.wanandroid.databinding.FragmentHomeBinding;
@@ -28,11 +30,14 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
 
     @Override
     protected void initData() {
-
+        mViewModel.requestBanner();
     }
 
     @Override
     protected void initViewObservable() {
-
+        mViewModel.getBannersLiveData().observe(this, banners -> {
+            Logger.d("获取到banner数据:" + banners);
+            ToastUtils.showShort(banners.toString());
+        });
     }
 }

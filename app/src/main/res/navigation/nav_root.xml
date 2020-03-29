@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.oyke.wanandroid.ui.page.MainFragment"
+        android:label="MainFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_rankFragment"
+            app:destination="@id/rankFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_todoFragment"
+            app:destination="@id/todoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_shareFragment"
+            app:destination="@id/shareFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_collectFragment"
+            app:destination="@id/collectFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.oyke.wanandroid.ui.page.SplashFragment"
+        android:label="SplashFragment">
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.oyke.wanandroid.ui.page.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.oyke.wanandroid.ui.page.RegisterFragment"
+        android:label="RegisterFragment" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.oyke.wanandroid.ui.page.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/rankFragment"
+        android:name="com.oyke.wanandroid.ui.page.RankFragment"
+        android:label="fragment_rank"
+        tools:layout="@layout/fragment_rank" />
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="com.oyke.wanandroid.ui.page.ScoreFragment"
+        android:label="ScoreFragment" />
+    <fragment
+        android:id="@+id/todoFragment"
+        android:name="com.oyke.wanandroid.ui.page.TodoFragment"
+        android:label="fragment_todo"
+        tools:layout="@layout/fragment_todo" />
+    <fragment
+        android:id="@+id/shareFragment"
+        android:name="com.oyke.wanandroid.ui.page.ShareFragment"
+        android:label="fragment_share"
+        tools:layout="@layout/fragment_share" />
+    <fragment
+        android:id="@+id/collectFragment"
+        android:name="com.oyke.wanandroid.ui.page.CollectFragment"
+        android:label="fragment_collect"
+        tools:layout="@layout/fragment_collect" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.oyke.wanandroid.ui.page.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchResultFragment"
+        android:name="com.oyke.wanandroid.ui.page.SearchResultFragment"
+        android:label="fragment_search_result"
+        tools:layout="@layout/fragment_search_result" />
+    <fragment
+        android:id="@+id/contentFragment"
+        android:name="com.oyke.wanandroid.ui.page.ContentFragment"
+        android:label="fragment_content"
+        tools:layout="@layout/fragment_content" />
+</navigation>
