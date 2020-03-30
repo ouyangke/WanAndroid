@@ -1,5 +1,10 @@
 package com.oyke.wanandroid.ui.page;
 
+import android.view.Menu;
+import android.view.MenuInflater;
+
+import androidx.annotation.NonNull;
+
 import com.oyke.baselibrary.base.BaseFragment;
 import com.oyke.wanandroid.R;
 import com.oyke.wanandroid.databinding.FragmentSquareBinding;
@@ -28,11 +33,16 @@ public class SquareFragment extends BaseFragment<FragmentSquareBinding, SquareVi
 
     @Override
     protected void initData() {
-
     }
 
     @Override
     protected void initViewObservable() {
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_square,menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }

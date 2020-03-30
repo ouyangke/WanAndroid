@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="click"
+            type="com.oyke.wanandroid.ui.page.MainFragment.ClickProxy" />
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -20,7 +23,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <include layout="@layout/toolbar" />
+            <include
+                android:id="@+id/include_toolbar"
+                layout="@layout/toolbar" />
 
             <fragment
                 android:id="@+id/fh_main"
@@ -44,8 +49,9 @@
                 app:elevation="@dimen/dp_16"
                 app:itemIconTint="@drawable/nav_item_color_state"
                 app:itemTextColor="@drawable/nav_item_color_state"
+                app:labelVisibilityMode="labeled"
                 app:layout_behavior=".ui.widget.behavior.BottomNavigationBehavior"
-                app:menu="@menu/menu_navigation_bottom"/>
+                app:menu="@menu/menu_navigation_bottom" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_main"
@@ -54,6 +60,8 @@
                 android:layout_gravity="bottom|end"
                 android:layout_marginEnd="@dimen/dp_20"
                 android:layout_marginBottom="@dimen/dp_60"
+                android:onClick="@{()->click.onFABClick()}"
+                android:backgroundTint="@color/colorPrimary"
                 app:layout_behavior=".ui.widget.behavior.ScaleDownShowBehavior"
                 app:srcCompat="@drawable/ic_arrow_upward_white_24dp" />
 
