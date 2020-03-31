@@ -21,7 +21,7 @@ import com.oyke.wanandroid.viewmodel.state.MainViewModel;
 
 
 /**
- * Description:    主页
+ * Description:    主界面
  * Author:         oyke
  * CreateDate:     2020/3/29 12:49
  */
@@ -68,9 +68,9 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
             }
         });
 
-        navRoot = Navigation.findNavController(mActivity, R.id.root_fragment_host);
+        navRoot = Navigation.findNavController(mActivity, R.id.nhf_root);
 
-        navMain = Navigation.findNavController(mActivity, R.id.fh_main);
+        navMain = Navigation.findNavController(mActivity, R.id.nhf_main);
         NavigationUI.setupWithNavController(mBinding.bnvMain, navMain);
         mBinding.bnvMain.setOnNavigationItemSelectedListener(item -> {
             changePage(item.getItemId());
@@ -81,6 +81,33 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mBinding.dlMain.addDrawerListener(toggle);
         toggle.syncState();
+
+        mBinding.nvMain.setNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.scoreFragment:
+                    navRoot.navigate(R.id.action_mainFragment_to_scoreFragment);
+                    break;
+                case R.id.collectFragment:
+                    navRoot.navigate(R.id.action_mainFragment_to_collectFragment);
+                    break;
+                case R.id.shareFragment:
+                    navRoot.navigate(R.id.action_mainFragment_to_shareFragment);
+                    break;
+                case R.id.todoFragment:
+                    navRoot.navigate(R.id.action_mainFragment_to_todoFragment);
+                    break;
+                case R.id.nav_night_mode:
+                    break;
+                case R.id.settingFragment:
+                    navRoot.navigate(R.id.action_mainFragment_to_settingFragment);
+                    break;
+                case R.id.nav_logout:
+                    break;
+                default:
+                    break;
+            }
+            return false;
+        });
 
 
     }
@@ -93,8 +120,8 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        if (mBinding.bnvMain.getSelectedItemId() != R.id.action_square) {
-            inflater.inflate(R.menu.menu_fragment_main, menu);
+        if (mBinding.bnvMain.getSelectedItemId() != R.id.squareFragment) {
+            inflater.inflate(R.menu.menu_main, menu);
         }
         super.onCreateOptionsMenu(menu, inflater);
     }
@@ -103,7 +130,7 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_search:
-                navRoot.navigate(R.id.action_homeFragment_to_searchFragment);
+                navRoot.navigate(R.id.action_mainFragment_to_searchFragment);
                 break;
             default:
                 break;
@@ -119,19 +146,19 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
     private void changePage(int itemId) {
         navMain.navigate(itemId);
         switch (itemId) {
-            case R.id.action_home:
+            case R.id.homeFragment:
                 mToolbar.setTitle(R.string.app_name);
                 break;
-            case R.id.action_square:
+            case R.id.squareFragment:
                 mToolbar.setTitle(R.string.square);
                 break;
-            case R.id.action_wechat:
+            case R.id.weChatFragment:
                 mToolbar.setTitle(R.string.wechat);
                 break;
-            case R.id.action_system:
+            case R.id.systemFragment:
                 mToolbar.setTitle(R.string.knowledge_system);
                 break;
-            case R.id.action_project:
+            case R.id.projectFragment:
                 mToolbar.setTitle(R.string.project);
                 break;
             default:

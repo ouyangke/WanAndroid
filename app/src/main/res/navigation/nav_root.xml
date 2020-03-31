@@ -10,28 +10,28 @@
         android:name="com.oyke.wanandroid.ui.page.MainFragment"
         android:label="MainFragment">
         <action
-            android:id="@+id/action_homeFragment_to_loginFragment"
+            android:id="@+id/action_mainFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_settingFragment"
+            android:id="@+id/action_mainFragment_to_settingFragment"
             app:destination="@id/settingFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_rankFragment"
+            android:id="@+id/action_mainFragment_to_rankFragment"
             app:destination="@id/rankFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_scoreFragment"
+            android:id="@+id/action_mainFragment_to_scoreFragment"
             app:destination="@id/scoreFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_todoFragment"
+            android:id="@+id/action_mainFragment_to_todoFragment"
             app:destination="@id/todoFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_shareFragment"
+            android:id="@+id/action_mainFragment_to_shareFragment"
             app:destination="@id/shareFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_collectFragment"
+            android:id="@+id/action_mainFragment_to_collectFragment"
             app:destination="@id/collectFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_searchFragment"
+            android:id="@+id/action_mainFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
     </fragment>
     <fragment
@@ -39,7 +39,7 @@
         android:name="com.oyke.wanandroid.ui.page.SplashFragment"
         android:label="SplashFragment">
         <action
-            android:id="@+id/action_splashFragment_to_homeFragment"
+            android:id="@+id/action_splashFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
     <fragment

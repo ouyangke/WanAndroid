@@ -7,7 +7,7 @@ import com.oyke.wanandroid.databinding.FragmentHomeBinding;
 import com.oyke.wanandroid.viewmodel.state.HomeViewModel;
 
 /**
- * Description:    主页
+ * Description:    首页
  * Author:         oyke
  * CreateDate:     2020/1/10 9:47
  */

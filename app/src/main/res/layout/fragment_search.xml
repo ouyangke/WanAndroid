@@ -14,7 +14,7 @@
 
         <include
             android:id="@+id/include_toolbar"
-            layout="@layout/toolbar_search" />
+            layout="@layout/include_toolbar_search" />
 
         <TextView
             android:layout_width="wrap_content"

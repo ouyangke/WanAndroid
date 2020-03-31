@@ -4,23 +4,23 @@
     <group android:id="@+id/other">
 
         <item
-            android:id="@+id/nav_score"
+            android:id="@+id/scoreFragment"
             android:icon="@drawable/ic_score_white_24dp"
             android:title="@string/nav_my_score"
             app:actionViewClass="android.widget.TextView" />
 
         <item
-            android:id="@+id/nav_collect"
+            android:id="@+id/collectFragment"
             android:icon="@drawable/ic_like_not"
             android:title="@string/nav_my_collect" />
 
         <item
-            android:id="@+id/nav_share"
+            android:id="@+id/shareFragment"
             android:icon="@drawable/ic_share_white_24dp"
             android:title="@string/my_share" />
 
         <item
-            android:id="@+id/nav_todo"
+            android:id="@+id/todoFragment"
             android:icon="@drawable/ic_todo_default_24dp"
             android:title="@string/nav_todo" />
 
@@ -30,10 +30,10 @@
             android:title="@string/nav_night_mode" />
 
         <item
-            android:id="@+id/nav_setting"
+            android:id="@+id/settingFragment"
             android:icon="@drawable/ic_setting_24dp"
             android:title="@string/nav_setting" />
-        
+
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_logout_white_24dp"

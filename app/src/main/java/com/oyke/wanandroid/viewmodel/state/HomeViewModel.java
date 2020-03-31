@@ -10,7 +10,7 @@ import com.oyke.wanandroid.net.ResponseObserver;
 import java.util.List;
 
 /**
- * Description:    主页ViewModel
+ * Description:    首页ViewModel
  * Author:         oyke
  * CreateDate:     2020/1/1 9:47
  */

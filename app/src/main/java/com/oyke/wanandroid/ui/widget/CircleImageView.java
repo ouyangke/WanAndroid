@@ -34,7 +34,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import com.oyke.wanandroid.R;
 
 /**
- * Description:    TODO
+ * Description:    圆形图片框
  * Author:         oyke
  * CreateDate:     2020/3/29 16:03
  */

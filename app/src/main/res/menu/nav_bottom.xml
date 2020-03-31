@@ -2,31 +2,31 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_home"
+        android:id="@+id/homeFragment"
         android:enabled="true"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/home"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_square"
+        android:id="@+id/squareFragment"
         android:enabled="true"
         android:icon="@drawable/ic_square_black_24dp"
         android:title="@string/square"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_wechat"
+        android:id="@+id/weChatFragment"
         android:enabled="true"
         android:icon="@drawable/ic_wechat_black_24dp"
         android:title="@string/wechat"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_system"
+        android:id="@+id/systemFragment"
         android:enabled="true"
         android:icon="@drawable/ic_apps_black_24dp"
         android:title="@string/knowledge_system"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_project"
+        android:id="@+id/projectFragment"
         android:enabled="true"
         android:icon="@drawable/ic_project_black_24dp"
         android:title="@string/project"

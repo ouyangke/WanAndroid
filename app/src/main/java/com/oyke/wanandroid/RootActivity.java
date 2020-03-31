@@ -34,7 +34,7 @@ public class RootActivity extends BaseActivity<ActivityRootBinding, RootViewMode
 
     @Override
     protected void initData() {
-        Navigation.findNavController(this, R.id.root_fragment_host).navigate(R.id.action_splashFragment_to_homeFragment);
+        Navigation.findNavController(this, R.id.nhf_root).navigate(R.id.action_splashFragment_to_mainFragment);
     }
 
     @Override

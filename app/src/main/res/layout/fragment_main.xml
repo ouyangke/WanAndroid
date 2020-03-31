@@ -25,10 +25,10 @@
 
             <include
                 android:id="@+id/include_toolbar"
-                layout="@layout/toolbar" />
+                layout="@layout/include_toolbar" />
 
             <fragment
-                android:id="@+id/fh_main"
+                android:id="@+id/nhf_main"
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -51,7 +51,7 @@
                 app:itemTextColor="@drawable/nav_item_color_state"
                 app:labelVisibilityMode="labeled"
                 app:layout_behavior=".ui.widget.behavior.BottomNavigationBehavior"
-                app:menu="@menu/menu_navigation_bottom" />
+                app:menu="@menu/nav_bottom" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_main"
@@ -60,8 +60,8 @@
                 android:layout_gravity="bottom|end"
                 android:layout_marginEnd="@dimen/dp_20"
                 android:layout_marginBottom="@dimen/dp_60"
-                android:onClick="@{()->click.onFABClick()}"
                 android:backgroundTint="@color/colorPrimary"
+                android:onClick="@{()->click.onFABClick()}"
                 app:layout_behavior=".ui.widget.behavior.ScaleDownShowBehavior"
                 app:srcCompat="@drawable/ic_arrow_upward_white_24dp" />
 
@@ -77,6 +77,6 @@
             app:headerLayout="@layout/nav_header_main"
             app:itemIconTint="@color/item_nav_color_tv"
             app:itemTextColor="@color/item_nav_color_tv"
-            app:menu="@menu/menu_navigation_drawer" />
+            app:menu="@menu/nav_drawer" />
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>
