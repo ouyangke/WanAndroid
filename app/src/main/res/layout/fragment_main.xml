@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="click"
-            type="com.oyke.wanandroid.ui.page.MainFragment.ClickProxy" />
+            name="listener"
+            type="com.oyke.wanandroid.ui.page.MainFragment.ListenerProxy" />
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -41,6 +41,7 @@
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bnv_main"
                 style="@style/Widget.Design.BottomNavigationView"
+                onNavigationItemSelectedListener="@{(menuItem)->listener.onBottomNavigationItemSelected(menuItem)}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -61,7 +62,7 @@
                 android:layout_marginEnd="@dimen/dp_20"
                 android:layout_marginBottom="@dimen/dp_60"
                 android:backgroundTint="@color/colorPrimary"
-                android:onClick="@{()->click.onFABClick()}"
+                android:onClick="@{()->listener.onFABClick()}"
                 app:layout_behavior=".ui.widget.behavior.ScaleDownShowBehavior"
                 app:srcCompat="@drawable/ic_arrow_upward_white_24dp" />
 
@@ -69,6 +70,7 @@
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nv_main"
+            onNavigationItemSelectedListener="@{(menuItem)->listener.onDrawerNavigationItemSelected(menuItem)}"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
