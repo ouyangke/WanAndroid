@@ -13,10 +13,6 @@ import com.oyke.wanandroid.viewmodel.state.ContentViewModel;
  */
 public class ContentFragment extends BaseFragment<FragmentContentBinding, ContentViewModel> {
 
-    public ContentFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     protected void initParam() {

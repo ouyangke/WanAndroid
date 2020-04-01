@@ -9,14 +9,17 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.blankj.utilcode.util.ToastUtils;
+import com.orhanobut.logger.Logger;
 import com.oyke.baselibrary.base.BaseFragment;
 import com.oyke.wanandroid.R;
 import com.oyke.wanandroid.databinding.FragmentMainBinding;
+import com.oyke.wanandroid.databinding.NavHeaderMainBinding;
 import com.oyke.wanandroid.viewmodel.state.MainViewModel;
 
 
@@ -30,6 +33,7 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
     private Toolbar mToolbar;
     private NavController navMain;
     private NavController navRoot;
+    private NavHeaderMainBinding mNavHeaderMainBinding;
 
     @Override
     protected void initParam() {
@@ -43,11 +47,17 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
 
     @Override
     protected void initBinding() {
-        mBinding.setListener(new ListenerProxy());
+        ListenerProxy mListenerProxy = new ListenerProxy();
+        mBinding.setListener(mListenerProxy);
+        mNavHeaderMainBinding = DataBindingUtil.bind(mBinding.nvMain.getHeaderView(0));
+        if (mNavHeaderMainBinding != null) {
+            mNavHeaderMainBinding.setListener(mListenerProxy);
+        }
     }
 
     @Override
     protected void initData() {
+
         mToolbar = mBinding.includeToolbar.toolbar;
         mActivity.setSupportActionBar(mToolbar);
         mActivity.getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
@@ -77,6 +87,7 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mBinding.dlMain.addDrawerListener(toggle);
         toggle.syncState();
+
 
     }
 
@@ -110,6 +121,10 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
      * 监听器代理
      */
     public class ListenerProxy {
+
+        public void onRankClick() {
+            navRoot.navigate(R.id.action_mainFragment_to_rankFragment);
+        }
 
         public void onFABClick() {
 

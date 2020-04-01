@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="listener"
+            type="com.oyke.wanandroid.ui.page.MainFragment.ListenerProxy" />
     </data>
 
     <LinearLayout
@@ -27,6 +30,7 @@
             android:layout_width="@dimen/dp_20"
             android:layout_height="@dimen/dp_20"
             android:layout_gravity="end"
+            android:onClick="@{()-> listener.onRankClick()}"
             app:srcCompat="@drawable/ic_rank_white_24dp" />
 
         <com.oyke.wanandroid.ui.widget.CircleImageView
