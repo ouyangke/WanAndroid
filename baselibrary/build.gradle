@@ -22,8 +22,13 @@ android {
         }
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
 }
@@ -31,35 +36,35 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    api 'androidx.navigation:navigation-fragment:2.2.1'
-    api 'androidx.navigation:navigation-ui:2.2.1'
+    api 'androidx.navigation:navigation-fragment:2.3.0'
+    api 'androidx.navigation:navigation-ui:2.3.0'
     api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
     api "androidx.room:room-runtime:2.2.5"
     annotationProcessor "androidx.room:room-compiler:2.2.5"
     api "androidx.room:room-rxjava2:2.2.5"
 
-    api "androidx.navigation:navigation-fragment:2.2.1"
-    api "androidx.navigation:navigation-ui:2.2.1"
+    api 'androidx.navigation:navigation-fragment:2.3.0'
+    api 'androidx.navigation:navigation-ui:2.3.0'
 
     api "androidx.paging:paging-runtime:2.1.2"
     api "androidx.paging:paging-common:2.1.2"
     api "androidx.paging:paging-rxjava2:2.1.2"
 
     api 'com.orhanobut:logger:2.2.0'
-    api 'com.blankj:utilcodex:1.26.0'
+    api 'com.blankj:utilcodex:1.28.4'
 
     api 'com.google.code.gson:gson:2.8.6'
-    api 'com.squareup.okhttp3:okhttp:4.3.0'
-    api 'com.squareup.okhttp3:logging-interceptor:4.3.0'
-    api 'com.squareup.retrofit2:retrofit:2.7.0'
-    api 'com.squareup.retrofit2:converter-gson:2.7.0'
-    api 'com.squareup.retrofit2:adapter-rxjava2:2.7.0'
+    api 'com.squareup.okhttp3:okhttp:4.9.0'
+    api 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+    api 'com.squareup.retrofit2:converter-gson:2.9.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
 
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
     api 'io.reactivex.rxjava2:rxjava:2.2.13'

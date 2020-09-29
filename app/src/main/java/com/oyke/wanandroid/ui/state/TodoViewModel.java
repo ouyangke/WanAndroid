@@ -1,4 +1,4 @@
-package com.oyke.wanandroid.viewmodel.state;
+package com.oyke.wanandroid.ui.state;
 
 import com.oyke.baselibrary.base.BaseViewModel;
 
@@ -7,5 +7,5 @@ import com.oyke.baselibrary.base.BaseViewModel;
  * Author:         oyke
  * CreateDate:     2020/3/29 12:47
  */
-public class SearchResultViewModel extends BaseViewModel {
+public class TodoViewModel extends BaseViewModel {
 }

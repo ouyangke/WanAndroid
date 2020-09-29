@@ -4,14 +4,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.ImageView;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 
 import com.oyke.baselibrary.base.BaseFragment;
+import com.oyke.baselibrary.base.DataBindingConfig;
 import com.oyke.wanandroid.R;
-import com.oyke.wanandroid.databinding.FragmentSearchBinding;
-import com.oyke.wanandroid.viewmodel.state.SearchViewModel;
 
 import java.lang.reflect.Field;
 
@@ -21,39 +19,16 @@ import java.lang.reflect.Field;
  * Author:         oyke
  * CreateDate:     2020/3/29 12:49
  */
-public class SearchFragment extends BaseFragment<FragmentSearchBinding, SearchViewModel> {
+public class SearchFragment extends BaseFragment {
 
     @Override
-    protected void initParam() {
+    protected void initViewModel() {
 
     }
 
     @Override
-    protected int initContentView() {
-        return R.layout.fragment_search;
-    }
-
-    @Override
-    protected void initBinding() {
-
-    }
-
-    @Override
-    protected void initData() {
-        mActivity.setSupportActionBar(mBinding.includeToolbar.toolbar);
-        mActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mActivity.getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                nav().popBackStack();
-            }
-        });
-
-    }
-
-    @Override
-    protected void initViewObservable() {
-
+    protected DataBindingConfig getDataBindingConfig() {
+        return null;
     }
 
     @Override
@@ -88,4 +63,5 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding, SearchVi
             return false;
         }
     };
+
 }

@@ -3,43 +3,27 @@ package com.oyke.wanandroid;
 import android.view.MotionEvent;
 import android.view.View;
 
-import androidx.navigation.Navigation;
-
 import com.oyke.baselibrary.base.BaseActivity;
-import com.oyke.wanandroid.databinding.ActivityRootBinding;
+import com.oyke.baselibrary.base.DataBindingConfig;
 import com.oyke.wanandroid.util.KeyBoardUtil;
-import com.oyke.wanandroid.viewmodel.state.RootViewModel;
+import com.oyke.wanandroid.ui.state.RootViewModel;
 
 /**
  * Description:    根activity
  * Author:         oyke
  * CreateDate:     2020/1/1 8:15
  */
-public class RootActivity extends BaseActivity<ActivityRootBinding, RootViewModel> {
+public class RootActivity extends BaseActivity {
+    private RootViewModel mRootViewModel;
 
     @Override
-    protected void initParam() {
-
+    protected void initViewModel() {
+        mRootViewModel = getActivityViewModel(RootViewModel.class);
     }
 
     @Override
-    protected int initContentView() {
-        return R.layout.activity_root;
-    }
-
-    @Override
-    protected void initBinding() {
-
-    }
-
-    @Override
-    protected void initData() {
-        Navigation.findNavController(this, R.id.nhf_root).navigate(R.id.action_splashFragment_to_mainFragment);
-    }
-
-    @Override
-    protected void initViewObservable() {
-
+    protected DataBindingConfig getDataBindingConfig() {
+        return new DataBindingConfig(R.layout.activity_root,BR.vm,mRootViewModel);
     }
 
     @Override

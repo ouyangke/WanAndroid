@@ -1,4 +1,4 @@
-package com.oyke.wanandroid.viewmodel.state;
+package com.oyke.wanandroid.ui.state;
 
 import androidx.lifecycle.MutableLiveData;
 

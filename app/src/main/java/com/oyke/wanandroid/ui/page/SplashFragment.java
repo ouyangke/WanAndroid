@@ -1,37 +1,21 @@
 package com.oyke.wanandroid.ui.page;
 
 import com.oyke.baselibrary.base.BaseFragment;
-import com.oyke.wanandroid.R;
-import com.oyke.wanandroid.databinding.FragmentSplashBinding;
-import com.oyke.wanandroid.viewmodel.state.SplashViewModel;
+import com.oyke.baselibrary.base.DataBindingConfig;
 
 /**
  * Description:    闪屏
  * Author:         oyke
  * CreateDate:     2020/1/10 9:47
  */
-public class SplashFragment extends BaseFragment<FragmentSplashBinding, SplashViewModel> {
+public class SplashFragment extends BaseFragment {
     @Override
-    protected void initParam() {
+    protected void initViewModel() {
 
     }
 
     @Override
-    protected int initContentView() {
-        return R.layout.fragment_splash;
-    }
-
-    @Override
-    protected void initBinding() {
-
-    }
-
-    @Override
-    protected void initData() {
-    }
-
-    @Override
-    protected void initViewObservable() {
-
+    protected DataBindingConfig getDataBindingConfig() {
+        return null;
     }
 }

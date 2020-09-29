@@ -1,38 +1,21 @@
 package com.oyke.wanandroid.ui.page;
 
 import com.oyke.baselibrary.base.BaseFragment;
-import com.oyke.wanandroid.R;
-import com.oyke.wanandroid.databinding.FragmentLoginBinding;
-import com.oyke.wanandroid.viewmodel.state.LoginViewModel;
+import com.oyke.baselibrary.base.DataBindingConfig;
 
 /**
  * Description:    登录
  * Author:         oyke
  * CreateDate:     2020/1/5 14:23
  */
-public class LoginFragment extends BaseFragment<FragmentLoginBinding, LoginViewModel> {
+public class LoginFragment extends BaseFragment {
     @Override
-    protected void initParam() {
+    protected void initViewModel() {
 
     }
 
     @Override
-    protected int initContentView() {
-        return R.layout.fragment_login;
-    }
-
-    @Override
-    protected void initBinding() {
-
-    }
-
-    @Override
-    protected void initData() {
-
-    }
-
-    @Override
-    protected void initViewObservable() {
-
+    protected DataBindingConfig getDataBindingConfig() {
+        return null;
     }
 }

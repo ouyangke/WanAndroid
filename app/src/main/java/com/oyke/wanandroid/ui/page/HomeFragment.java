@@ -1,41 +1,21 @@
 package com.oyke.wanandroid.ui.page;
 
-import com.orhanobut.logger.Logger;
 import com.oyke.baselibrary.base.BaseFragment;
-import com.oyke.wanandroid.R;
-import com.oyke.wanandroid.databinding.FragmentHomeBinding;
-import com.oyke.wanandroid.viewmodel.state.HomeViewModel;
+import com.oyke.baselibrary.base.DataBindingConfig;
 
 /**
  * Description:    首页
  * Author:         oyke
  * CreateDate:     2020/1/10 9:47
  */
-public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewModel> {
+public class HomeFragment extends BaseFragment {
     @Override
-    protected void initParam() {
+    protected void initViewModel() {
 
     }
 
     @Override
-    protected int initContentView() {
-        return R.layout.fragment_home;
-    }
-
-    @Override
-    protected void initBinding() {
-
-    }
-
-    @Override
-    protected void initData() {
-        mViewModel.requestBanner();
-    }
-
-    @Override
-    protected void initViewObservable() {
-        mViewModel.getBannersLiveData().observe(this, banners -> {
-            Logger.d("获取到banner数据:" + banners);
-        });
+    protected DataBindingConfig getDataBindingConfig() {
+        return null;
     }
 }

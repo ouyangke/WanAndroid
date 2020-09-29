@@ -16,70 +16,79 @@
 
 package com.oyke.baselibrary.viewmodel.callback;
 
-import androidx.annotation.NonNull;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.Map;
-
 /**
- * 仅分发 owner observe 后 才新拿到的数据
- * 可避免共享作用域 VM 下 liveData 被 observe 时旧数据倒灌的情况
+ * TODO：UnPeekLiveData 的存在是为了在 "重回二级页面" 的场景下，解决 "数据倒灌" 的问题。
+ * 对 "数据倒灌" 的状况不理解的小伙伴，可参考《jetpack MVVM 精讲》的解析
  * <p>
- * Create by KunMinX at 19/9/23
+ * https://juejin.im/post/5dafc49b6fb9a04e17209922
+ * <p>
+ * 本类参考了官方 SingleEventLive 的非入侵设计，
+ * <p>
+ * TODO：并创新性地引入了 "延迟清空消息" 的设计，
+ * 如此可确保：
+ * 1.一条消息能被多个观察者消费
+ * 2.延迟期结束，不再能够收到旧消息的推送
+ * 3.并且旧消息在延迟期结束时能从内存中释放，避免内存溢出等问题
+ * 4.让非入侵设计成为可能，遵循开闭原则
+ * <p>
+ * TODO：增加一层 ProtectedUnPeekLiveData，
+ * 用于限制从 Activity/Fragment 篡改来自 "数据层" 的数据，数据层的数据务必通过唯一可信源来分发，
+ * 如果这样说还不理解，详见：
+ * https://xiaozhuanlan.com/topic/6719328450 和 https://xiaozhuanlan.com/topic/0168753249
+ * <p>
+ * Create by KunMinX at 2020/7/21
  */
-public class UnPeekLiveData<T> extends MutableLiveData<T> {
+public class UnPeekLiveData<T> extends ProtectedUnPeekLiveData<T> {
 
     @Override
-    public void observe(@NonNull LifecycleOwner owner, @NonNull Observer<? super T> observer) {
-        super.observe(owner, observer);
-        hook(observer);
+    public void setValue(T value) {
+        super.setValue(value);
     }
 
-    private void hook(Observer<? super T> observer) {
-        Class<LiveData> liveDataClass = LiveData.class;
-        try {
-            //获取field private SafeIterableMap<Observer<T>, ObserverWrapper> mObservers
-            Field mObservers = liveDataClass.getDeclaredField("mObservers");
-            mObservers.setAccessible(true);
-            //获取SafeIterableMap集合mObservers
-            Object observers = mObservers.get(this);
-            Class<?> observersClass = observers.getClass();
-            //获取SafeIterableMap的get(Object obj)方法
-            Method methodGet = observersClass.getDeclaredMethod("get", Object.class);
-            methodGet.setAccessible(true);
-            //获取到observer在集合中对应的ObserverWrapper对象
-            Object objectWrapperEntry = methodGet.invoke(observers, observer);
-            Object objectWrapper = null;
-            if (objectWrapperEntry instanceof Map.Entry) {
-                objectWrapper = ((Map.Entry) objectWrapperEntry).getValue();
-            }
-            if (objectWrapper == null) {
-                throw new NullPointerException("ObserverWrapper can not be null");
-            }
-            //获取ObserverWrapper的Class对象  LifecycleBoundObserver extends ObserverWrapper
-            Class<?> wrapperClass = objectWrapper.getClass().getSuperclass();
-            //获取ObserverWrapper的field mLastVersion
-            Field mLastVersion = wrapperClass.getDeclaredField("mLastVersion");
-            mLastVersion.setAccessible(true);
-            //获取liveData的field mVersion
-            Field mVersion = liveDataClass.getDeclaredField("mVersion");
-            mVersion.setAccessible(true);
-            Object mV = mVersion.get(this);
-            //把当前ListData的mVersion赋值给 ObserverWrapper的field mLastVersion
-            mLastVersion.set(objectWrapper, mV);
+    @Override
+    public void postValue(T value) {
+        super.postValue(value);
+    }
 
-            mObservers.setAccessible(false);
-            methodGet.setAccessible(false);
-            mLastVersion.setAccessible(false);
-            mVersion.setAccessible(false);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public static class Builder<T> {
+
+        /**
+         * 消息的生存时长
+         */
+        private int eventSurvivalTime = 1000;
+
+        /**
+         * 是否允许传入 null value
+         */
+        private boolean isAllowNullValue;
+
+        /**
+         * 是否允许自动清理，默认 true
+         */
+        private boolean isAllowToClear = true;
+
+        public Builder<T> setEventSurvivalTime(int eventSurvivalTime) {
+            this.eventSurvivalTime = eventSurvivalTime;
+            return this;
+        }
+
+        public Builder<T> setAllowNullValue(boolean allowNullValue) {
+            this.isAllowNullValue = allowNullValue;
+            return this;
+        }
+
+        public Builder<T> setAllowToClear(boolean allowToClear) {
+            this.isAllowToClear = allowToClear;
+            return this;
+        }
+
+        public UnPeekLiveData<T> create() {
+            UnPeekLiveData<T> liveData = new UnPeekLiveData<>();
+            liveData.DELAY_TO_CLEAR_EVENT = this.eventSurvivalTime;
+            liveData.isAllowNullValue = this.isAllowNullValue;
+            liveData.isAllowToClear = this.isAllowToClear;
+            return liveData;
         }
     }
-
 }
+
